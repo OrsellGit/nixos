@@ -24,7 +24,7 @@
       intel-compute-runtime
       intel-media-driver    # LIBVA_DRIVER_NAME=iHD
       intel-vaapi-driver    # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
+      libva-vdpau-driver
       libvdpau-va-gl
       mesa
       nvidia-vaapi-driver
@@ -33,7 +33,7 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [
       intel-media-driver
       intel-vaapi-driver
-      vaapiVdpau
+      libva-vdpau-driver
       mesa
       libvdpau-va-gl
     ];
@@ -51,7 +51,7 @@
 
     #? Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     #? Enable this if you have graphical corruption issues or application crashes after waking
-    #? up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    #? up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     #? of just the bare essentials.
     powerManagement.enable = true;
 
