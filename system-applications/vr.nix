@@ -6,16 +6,9 @@
         alvr
         sidequest
         bs-manager # Beat Saber Mod Manager
-    ];
-
-    #? Screen overlays and computer screen viewers for WiVRn
-    environment.systemPackages = with pkgs; [
-        wlx-overlay-s
         wayvr-dashboard
+        wivrn
     ];
-
-    #? Android Debug Bridge
-    programs.adb.enable = true;
 
     #? WiVRn
     services.wivrn = {
