@@ -16,7 +16,12 @@
   # TODO: Replace this Vencord setup with the one I usually have that is in the cloud.
   programs.nixcord = {
     enable = true;  # enable Nixcord. Also installs discord package
-    vesktop.enable = true;
+    discord = {
+      vencord.enable = false;
+      equicord.enable = true;
+    };
+    vesktop.enable = false;
+    equibop.enable = true;
     config = {
       # themeLinks = [
       #   "https://raw.githubusercontent.com/Xhylo/Visual-Studio-Code-BD-theme/main/VSC-Cord.theme.css"
@@ -31,8 +36,11 @@
       plugins = {
         betterGifPicker.enable = true;
         betterSessions.enable = true;
-        callTimer.enable = true;
-        clearURLs.enable = true;
+        callTimer = {
+          enable = true;
+          format = "human";
+        };
+        ClearURLs.enable = true;
         dearrow.enable = true;
         disableCallIdle.enable = true;
         experiments.enable = true;
@@ -57,21 +65,24 @@
         moreCommands.enable = true;
         messageTags.enable = true;
         moreUserTags.enable = true;
-        mutualGroupDMs.enable = true;
+        MutualGroupDMs.enable = true;
         noOnboardingDelay.enable = true;
-        noReplyMention.enable = true;
         noUnblockToJump.enable = true;
         normalizeMessageLinks.enable = true;
-        onePingPerDM.enable = true;
+        OnePingPerDM.enable = true;
+        openInApp.enable = true;
         pauseInvitesForever.enable = true;
         permissionFreeWill.enable = true;
         permissionsViewer.enable = true;
         pictureInPicture.enable = true;
-        pinDMs.enable = true;
+        PinDMs.enable = true;
         platformIndicators.enable = true;
         previewMessage.enable = true;
         userMessagesPronouns.enable = true;
-        relationshipNotifier.enable = true;
+        relationshipNotifier = {
+          enable = true;
+          notices = true;
+        };
         revealAllSpoilers.enable = true;
         serverInfo.enable = true;
         serverListIndicators.enable = true;
@@ -93,10 +104,15 @@
         userVoiceShow.enable = true;
         validReply.enable = true;
         validUser.enable = true;
-        vcNarrator.enable = true;
+        vcNarratorCustom = {
+          enable = true;
+        };
         viewIcons.enable = true;
         voiceDownload.enable = true;
-        volumeBooster.enable = true;
+        volumeBooster = {
+          enable = true;
+          multiplier = 5.0;
+        };
         whoReacted.enable = true;
         youtubeAdblock.enable = true;
         webRichPresence.enable = true;
@@ -105,21 +121,6 @@
         customIdle = {
           enable = true;
           idleTimeout = 0.0;
-        };
-
-        openInApp = {
-          enable = true;
-          steam = true;
-          spotify = false;
-          epic = false;
-          tidal = false;
-          itunes = false;
-        };
-        
-        noPendingCount =  {
-          enable = true;
-          hideFriendRequestsCount = false;
-          hideMessageRequestCount = false;
         };
       };
       transparent = true;
