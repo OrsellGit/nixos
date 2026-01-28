@@ -11,12 +11,18 @@
         imagemagick
         gnupg
         btop # System prcocess viewer
+        ethtool # TODO-FIXME: Have been needing to use ethtool in order to enable ethernet since it isn't automatically starting it.
 
         meld
 
+        audacity
+
         protonup-qt
+        protontricks
+        wine64
+
         #tailscale # TODO: Get this working.
-        
+
         brightnessctl # Laptop screen backlight and button controls # TODO: Implement this into Hyprland binds
         seahorse # GNOME keyring manager # TODO: Replace with kwallet keyring
 

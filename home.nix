@@ -43,6 +43,7 @@
     obsidian # Markdown knowledge base program
 
     gitkraken
+    maestral
 
     nerd-fonts.jetbrains-mono
   ];

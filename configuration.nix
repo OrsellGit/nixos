@@ -10,7 +10,7 @@
     ./system-configuration/bootloader.nix
     ./system-configuration/cpu-power.nix
     ./system-configuration/graphics.nix
-    ./system-configuration/kde.nix
+    #./system-configuration/kde.nix
     ./system-configuration/networking.nix
     ./system-configuration/regreet.nix
     ./system-configuration/services.nix
@@ -23,6 +23,7 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; #? To encourage electron applications to use Wayland instead of X11
     WLR_NO_HARDWARE_CURSORS = "1";
+    __GL_GSYNC_ALLOWED = "1";
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -124,7 +125,7 @@
   # Define a user account.
   users.users.orsell = {
     isNormalUser = true;
-    description = "Some Nerd's Account"; #? This also behaves as the user accounts name.
+    description = "Some Nerd's Account"; #? This also behaves as the user accounts name on the greeter.
     extraGroups = [ "networkmanager" "wheel" "adbusers" "libvirtd" "users" ];
   };
 
@@ -133,6 +134,8 @@
     pinentryPackage = pkgs.pinentry-qt;
     enableSSHSupport = true;
   };
+
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
