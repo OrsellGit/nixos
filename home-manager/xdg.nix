@@ -59,9 +59,9 @@
         "text/plain" = ["code.desktop"];
         "image/*" = ["gwenview.desktop"];
         "video/*" = ["mpv.desktop"];
-        "inode/directory" = [ "dolphin.desktop" ];
+        "inode/directory" = [ "dolphin.desktop" ]; # TODO-FIXME: Not working? xdb-open is not using this?
         "application/x-gnome-saved-search" = [ "dolphin.desktop" ];
-        # "applicaiton/zip" = [ "" ]; # TODO: Get zip file assosiation working.
+        "applicaiton/zip" = [ "org.kde.ark.desktop" ];
       };
     };
   };
