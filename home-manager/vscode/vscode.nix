@@ -61,6 +61,12 @@
 			version = "1.21.36";
 			sha256 = "IqgYnesIz46WmJ7kR8LYnr2kkD33oiupi7CrcV6rGRg=";
 		}
+		{
+			name = "panorama-css";
+			publisher = "braemie";
+			version = "0.4.2";
+			sha256 = "sha256-lzGwtlZ4mUnwfdWn7pLrzrXC3YG+OCXxyKg8jOOuppc=";
+		}
     ];
 
     profiles.default.userSettings = {
@@ -70,7 +76,9 @@
 
 	  	"editor.selectionClipboard" = false;
 	  	"editor.fontFamily" = "JetBrainsMono Nerd Font";
+
       	"files.autoSave" = "afterDelay";
+		"files.trimTrailingWhitespace" = true;
 	  
 	  	"git.autofetch" = true;
 	  	"git.openRepositoryInParentFolders" = "always";
@@ -80,6 +88,8 @@
 	  	"merge-conflict.autoNavigateNextConflict.enabled" = true;
 	  
 	  	"RainbowBrackets.depreciation-notice" = false;
+
+		"redhat.telemetry.enabled" = false;
 	  
 	  	"terminal.integrated.defaultProfile.linux" = "zsh";
 		"terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font"; 
