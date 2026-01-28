@@ -15,7 +15,7 @@
       sort=-time
 
       # [ BINDING OPTIONS ]
-      # Supported values: none, dismiss, dismiss-all, 
+      # Supported values: none, dismiss, dismiss-all,
       # dismiss-group, invoke-default-action & exec <command>
 
       on-button-left=invoke-default-action
@@ -32,10 +32,10 @@
       text-color=#FFFFFF
 
       # Set width of notification popup.( value in px )
-      width=800
+      width=400
 
       # maximum height of notification( value in px )
-      height=300
+      height=400
 
       # margin of notification which is margin for the list of notification block( value in px ).
       outer-margin=1
@@ -90,7 +90,7 @@
       # If set, mako will ignore the expire timeout(value: 0|1 )
       ignore-timeout=0
 
-      # Set maximum number of visible notifications 
+      # Set maximum number of visible notifications
       max-visible=5
 
       # Arrange mako at the specified layer, relative to normal windows.(value: background, bottom, top, overlay )
