@@ -46,22 +46,25 @@
         "systemctl --user enable --now waybar.service"
         "rog-control-center" # ASUS system control, supergfx and asusctl.
         "1password --silent" # Startup 1Password in the background.
-        "~/.wallpapers/wallpaper-d.sh" # Wallpapers.
+        "maestral" # Maestral, dropbox alternative
+
+        #"~/.wallpapers/wallpaper-d.sh" # Wallpapers.
         "[workspace 1 silent] kitty tmux"
-        "[workspace 1 silent] code"
-        "[workspace 2 silent] firefox"
+        #"[workspace 1 silent] code"
+        #"[workspace 2 silent] firefox"
         "[workspace 9 silent] kitty btop"
         "[workspace 9 silent] kitty nvitop"
-        "[workspace special:magic silent] vesktop"
+        "[workspace special:magic silent] equibop"
         "[workspace special:magic silent] teams-for-linux"
         "[workspace special:magic silent] thunderbird"
       ];
 
       "monitor" = [
-        "eDP-1, 2560x1600@240, 1920x0, 1.0"
-        "eDP-2, 2560x1600@240, 1920x0, 1.0" # For some reason, I believe it was when I was tweaking NVIDIA settings, it made a seperate display screen for when it's driven by the GPU.
-        "HDMI-A-1, 1920x1080@240, auto-left, 1.0" # Home LG monitor
+        "eDP-1, 2560x1600@240, auto-right, 1.0"
+        "eDP-2, 2560x1600@240, auto-right, 1.0" # For some reason, I believe it was when I was tweaking NVIDIA settings, it made a seperate display screen for when it's driven by the GPU.
+        "desc:LG Electronics LG ULTRAGEAR 0x00085DEB, preferred, 0x0, 0.8" # Home LG monitor
         "desc:ViewSonic Corporation VA2451 SERIES T1Y134120750, 1920x1080@60, auto-right, 1.0" # DigiPen monitor.
+        "desc:Philips Consumer Electronics Company PHL 288E2 AU52119000013, 3840x2160@60, auto-left, 1.0"
         ", preferred, auto-right, 1.0" # Any new monitors will be placed to the right of all monitors with its preferred resoluttion.
       ];
 
@@ -86,7 +89,7 @@
         # OBS Clip Hotkey
         ", F8, pass, class:^(com\.obsproject\.Studio)$"
 
-        # ", code:156, 
+        # ", code:156,
 
         # Open 1Password quick access menu.
         "control SHIFT, SPACE, exec, 1password --quick-access"
@@ -107,7 +110,7 @@
         # ", code:83, exec, ~/.discord-slasher.sh 0 1"
         # ", code:84, exec, ~/.discord-slasher.sh 1 1"
         # ", code:85, exec, ~/.discord-slasher.sh 2 1"
-        
+
         # Move application between workspaces
         "SUPER_SHIFT, 1, movetoworkspace, 1"
         "SUPER_SHIFT, 2, movetoworkspace, 2"
@@ -243,6 +246,13 @@
       # fix tab dragging (always have a single space character as their title)
       windowrulev2 = noinitialfocus, class:^(.*jetbrains.*)$, title:^\\s$
       windowrulev2 = nofocus, class:^(.*jetbrains.*)$, title:^\\s$
+
+      env = GBM_BACKEND,nvidia-drm
+      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+      env = LIBVA_DRIVER_NAME,nvidia
+
+      env = QT_QPA_PLATFORM,wayland;xcb
+      env = QT_AUTO_SCREEN_SCALE_FACTOR,1
     '';
   };
 
