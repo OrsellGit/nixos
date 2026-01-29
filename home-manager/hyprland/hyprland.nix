@@ -62,7 +62,7 @@
       "monitor" = [
         "eDP-1, 2560x1600@240, auto-right, 1.0"
         "eDP-2, 2560x1600@240, auto-right, 1.0" # For some reason, I believe it was when I was tweaking NVIDIA settings, it made a seperate display screen for when it's driven by the GPU.
-        "desc:LG Electronics LG ULTRAGEAR 0x00085DEB, preferred, 0x0, 0.8" # Home LG monitor
+        "desc:LG Electronics LG ULTRAGEAR 0x00085DEB, preferred, 0x0, 1.0" # Home LG monitor
         "desc:ViewSonic Corporation VA2451 SERIES T1Y134120750, 1920x1080@60, auto-right, 1.0" # DigiPen monitor.
         "desc:Philips Consumer Electronics Company PHL 288E2 AU52119000013, 3840x2160@60, auto-left, 1.0"
         ", preferred, auto-right, 1.0" # Any new monitors will be placed to the right of all monitors with its preferred resoluttion.
