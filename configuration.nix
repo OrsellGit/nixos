@@ -57,6 +57,7 @@
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
+  time.hardwareClockInLocalTime = true; # Helps make clock sync between changing between Windows and NixOS
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -107,15 +108,20 @@
     pulse.enable = true;
   };
 
-  nix.settings = {
-    auto-optimise-store = true;
+  nix = {
+    settings = {
+      auto-optimise-store = true;
 
-    # Flakes
-    experimental-features = [ "nix-command" "flakes" ];
+      # Flakes
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 15d";
+    };
   };
-  nix.gc.automatic = true;
-  nix.gc.dates = "daily";
-  nix.gc.options = "--delete-older-than 7d";
 
   # Allow unfree packages
   nixpkgs.config = {
