@@ -15,6 +15,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     millennium = {
       url = "git+https://github.com/Back-Slash-N/Millennium?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +30,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
   };
 
-  outputs = { self, nixpkgs, flake-utils, home-manager, ... }@inputs: {
+  outputs = { self, flake-utils, home-manager, lanzaboote, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
       lambda-core = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -45,6 +49,7 @@
             home-manager.extraSpecialArgs = { inherit inputs; };
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
+          lanzaboote.nixosModules.lanzaboote
         ];
       };
     };

@@ -1,14 +1,25 @@
-#* GRUB Bootloader Configuration
-{ pkgs, ... }:
+#* GRUB Bootloader Configuration And Secure Boot Config
+{ lib, pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    sbctl # Secure Boot key manager
+  ];
+
   boot.loader = {
+    # Lanzaboote currently replaces the systemd-boot module.
+    # This setting is usually set to true in configuration.nix
+    # generated at installation time. So we force it to false
+    # for now.
+    systemd-boot.enable = lib.mkForce false;
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
     grub = {
       efiSupport = true;
+      useOSProber = true;
       device = "nodev";
+      efiInstallAsRemovable = true;
 
       theme = pkgs.stdenv.mkDerivation {
         pname = "HyperFluent";
@@ -21,6 +32,16 @@
         };
         installPhase = "cp -r nixos $out";
       };
+    };
+  };
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+    autoGenerateKeys.enable = true;
+    autoEnrollKeys = {
+      enable = true;
+      autoReboot = false;
     };
   };
 }
