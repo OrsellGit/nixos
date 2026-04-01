@@ -75,21 +75,6 @@
 
   fonts.fontconfig.enable = true; #? Allow HM to discover installed fonts.
 
-  #? Environment variables set for the user.
-  home.sessionVariables = {
-    SSH_AUTH_SOCK = "$HOME/.1password/agent.sock"; #? Makes sure 1Password is used with SSH
-  };
-
-  # Secret Management
-  #sops = {
-  #  defaultSopsFile = ./system-configuration/sops/secrets/secrets.yaml;
-  #  defaultSopsFormat = "yaml";
-  #  defaultSymlinkPath = "/run/user/1000/secrets";
-  #  defaultSecretsMountPoint = "/run/user/1000/secrets.d";
-  #  #age.keyFile = "/home/orsell/.config/sops/age/keys.txt";
-  #  secrets.discord-token = { path = "${config.sops.defaultSymlinkPath}/discord-token"; };
-  #};
-
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

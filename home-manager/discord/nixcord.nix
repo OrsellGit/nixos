@@ -63,7 +63,6 @@
         messageLinkEmbeds.enable = true;
         messageLogger.enable = true;
         moreCommands.enable = true;
-        messageTags.enable = true;
         moreUserTags.enable = true;
         MutualGroupDMs.enable = true;
         noOnboardingDelay.enable = true;

@@ -1,5 +1,5 @@
 #* System Graphics Systems, Both Intel and Nvidia, along with OpenGL and PRIME configuration.
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 {
   boot.kernelParams = [
     #? These flags are used to enable backlight control when the dGPU is working in hybrid mode
@@ -10,6 +10,8 @@
 
   environment.systemPackages = with pkgs; [
     nvitop # Nvidia Btop styled process viewer
+    #gnomeExtensions.gpu-profile-selector
+    #inputs.envycontrol #.packages.x86_64-linux.default # https://github.com/bayasdev/envycontrol
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
@@ -40,7 +42,7 @@
   };
 
   #? Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   #? Enable access to nvidia from containers (Docker, Podman)
   hardware.nvidia-container-toolkit.enable = true;

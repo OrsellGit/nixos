@@ -51,6 +51,7 @@
             lg = "lazygit";
             nukserver = "ssh orsell@10.0.0.112";
             windows10 = "quickemu --vm ~/Desktop/VMs/windows-10-English-United-States.conf --display spice";
+            #nix-find-pkg="function f() { nix-instantiate --eval-only --expr \"(import <nixpkgs> {nixpkgs.config.allowUnfree = true;}).$1.outPath\"; }; f";
         };
 
         plugins = [

@@ -8,7 +8,7 @@
     # TODO: See if I could make this work again,
     services.power-profiles-daemon.enable = false;
     services.tlp = {
-        enable = false;
+        enable = true;
         settings = {
             CPU_SCALING_GOVERNOR_ON_AC = "performance";
             CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -22,8 +22,37 @@
             CPU_MAX_PERF_ON_BAT = 20;
 
             #Optional helps save long term battery health
-            START_CHARGE_THRESH_BAT0 = 50; # 50 and below it starts to charge
-            STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+            START_CHARGE_THRESH_BAT1 = 50; # 50 and below it starts to charge
+            STOP_CHARGE_THRESH_BAT1 = 80; # 80 and above it stops charging
         };
     };
+
+    # home-manager.users.orsell.home.file = {
+    #     "battery_warn.sh" = { source = ./battery_warn.sh; executable = true; };
+    # };
+
+    # systemd.timers."battery-warn" = {
+    #     wantedBy = [ "timers.target" ];
+    #     timerConfig = {
+    #         OnBootSec = "5";
+    #         OnUnitActiveSec = "5";
+    #         Unit = "battery-warn.service";
+    #     };
+    # };
+
+    # systemd.services."battery-warn" = {
+    #     script = "~/battery_warn.sh";
+    #     serviceConfig = {
+    #         Type = "oneshot";
+    #         User = "orsell";
+    #     };
+    # };
+
+    # Enable cron service
+    # services.cron = {
+    #     enable = true;
+    #     systemCronJobs = [
+    #         "* * * * * orsell ~/battery_warn.sh"
+    #     ];
+    # };
 }
